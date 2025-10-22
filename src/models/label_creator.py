@@ -123,7 +123,7 @@ def prepare_unified_data(
             continue
 
         # Only numeric columns
-        if event_data[col].dtype in ['int64', 'float64']:
+        if pd.api.types.is_numeric_dtype(event_data[col]):
             feature_cols.append(col)
 
     if len(feature_cols) == 0:
